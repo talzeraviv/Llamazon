@@ -1,12 +1,12 @@
-import Image from "next/image";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import ProductFeed from "./components/ProductFeed";
+import MongoDbConnect from "@/libs/MongoDb";
+import Product from "@/models/ProductModel";
 
 export default async function Home() {
-  const res = await fetch("http://localhost:3000/api/products");
-  const products = await res.json();
-
+  MongoDbConnect();
+  const products = await Product.find();
   return (
     <div className="bg-gray-100">
       <Header />
