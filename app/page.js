@@ -5,7 +5,7 @@ import MongoDbConnect from "@/libs/MongoDb";
 import Product from "@/models/ProductModel";
 
 export default async function Home() {
-  MongoDbConnect();
+  await MongoDbConnect();
   const products = await Product.find();
   return (
     <div className="bg-gray-100">
