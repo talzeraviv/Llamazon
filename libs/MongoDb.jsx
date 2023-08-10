@@ -9,7 +9,7 @@ export const MongoDbConnect = async () => {
         return mongoose.connection.asPromise();
 
       await mongoose.connect(process.env.MONGODB_PRODUCTION_URI);
-      console.log("=> Connected to MongoDB <=");
+      console.log("=> Connected to MongoDB Production URI <=");
     } catch (error) {
       console.log(error);
     }
@@ -19,7 +19,7 @@ export const MongoDbConnect = async () => {
         return mongoose.connection.asPromise();
 
       await mongoose.connect(process.env.MONGODB_DEVELOPMENT_URI);
-      console.log("=> Connected to MongoDB <=");
+      console.log("=> Connected to MongoDB Development URI <=");
     } catch (error) {
       console.log(error);
     }
