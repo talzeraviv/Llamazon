@@ -11,7 +11,7 @@ export const MongoDbConnect = async () => {
       await mongoose.connect(process.env.MONGODB_URI);
       console.log("=> Connected to MongoDB Production URI <=");
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   } else {
     try {
@@ -21,7 +21,7 @@ export const MongoDbConnect = async () => {
       await mongoose.connect(process.env.MONGODB_DEVELOPMENT_URI);
       console.log("=> Connected to MongoDB Development URI <=");
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   }
 };
