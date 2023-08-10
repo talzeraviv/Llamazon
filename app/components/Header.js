@@ -16,9 +16,10 @@ function Header() {
         <div className="flex items-center flex-grow sm:flex-grow-0">
           <Image
             src="/Llamazon-Edited.png"
-            width={100}
-            height={0}
-            className="cursor-pointer"
+            height={65}
+            width={65}
+            className="w-auto h-auto cursor-pointer"
+            alt="logo"
           />
         </div>
 
