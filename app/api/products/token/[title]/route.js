@@ -1,4 +1,4 @@
-import GetProductByToken from "@/libs/ProductRequests/GetProductByToken";
+import GetProductByToken from "@/libs/Actions/GetProductByToken";
 import { NextResponse } from "next/server";
 
 export async function GET(req, res) {

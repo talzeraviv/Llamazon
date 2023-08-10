@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import GetDistinctCategories from "@/libs/ProductRequests/GetDistinctCategories";
+import GetDistinctCategories from "@/libs/Actions/GetDistinctCategories";
 
 export async function GET() {
   const categories = await GetDistinctCategories();

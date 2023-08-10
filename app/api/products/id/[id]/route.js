@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import GetProductById from "@/libs/ProductRequests/GetProductById";
+import GetProductById from "@/libs/Actions/GetProductById";
 
 export async function GET(_, { params: { id } }) {
   const product = await GetProductById(id);

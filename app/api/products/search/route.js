@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import GetProductsBySearch from "@/libs/ProductRequests/GetProductsBySearch";
+import GetProductsBySearch from "@/libs/Actions/GetProductsBySearch";
 
 export async function GET(req) {
   const PAGE_SIZE = 6;

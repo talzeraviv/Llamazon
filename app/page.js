@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import ProductFeed from "./components/ProductFeed";
-import GetProducts from "@/libs/ProductRequests/GetProducts";
+import GetProducts from "@/libs/Actions/GetProducts";
 
 export default async function Home() {
   const products = await GetProducts();
