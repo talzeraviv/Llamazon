@@ -8,7 +8,7 @@ export const MongoDbConnect = async () => {
       if (mongoose.connection.readyState === 1)
         return mongoose.connection.asPromise();
 
-      await mongoose.connect(process.env.MONGODB_PRODUCTION_URI);
+      await mongoose.connect(process.env.MONGODB_URI);
       console.log("=> Connected to MongoDB Production URI <=");
     } catch (error) {
       console.log(error);
