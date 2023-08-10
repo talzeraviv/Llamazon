@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
 import { SyncLoader } from "react-spinners";
 
 function loading() {
   return (
-    <div>
-      <SyncLoader />;
+    <div className="fixed top-1/2 left-1/2">
+      <SyncLoader />
     </div>
   );
 }

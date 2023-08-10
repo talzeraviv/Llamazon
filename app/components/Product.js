@@ -48,7 +48,13 @@ function Product({ title, price, description, category, image, rating }) {
       </div>
 
       <div className="flex items-end space-x-1 mt-auto py-1">
-        <img className="mb-0.5 h-5" src="\prime-llama.png" alt="prime-llama" />
+        <Image
+          height={20}
+          width={20}
+          className="mb-0.5 h-5"
+          src={"/prime-llama.png"}
+          alt="prime-llama"
+        />
         <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
       </div>
       <button className="button">Add to Cart</button>

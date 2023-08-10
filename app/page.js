@@ -2,15 +2,15 @@ import Header from "./components/Header";
 import Banner from "./components/Banner";
 import ProductFeed from "./components/ProductFeed";
 import GetProducts from "@/libs/Actions/GetProducts";
+import { Suspense } from "react";
 
 export default async function Home() {
   const products = await GetProducts();
 
   return (
     <div className="bg-gray-100">
-      <Header />
-
       <main className="max-w-screen-2xl mx-auto">
+        <Header />
         <Banner />
         <ProductFeed products={products} />
       </main>
@@ -19,6 +19,10 @@ export default async function Home() {
 }
 
 // Client Component Code
+
+{
+  /* {await new Promise((resolve) => setTimeout(resolve, 2000))} */
+}
 
 // import { useEffect, useState } from "react";
 // import loading from "./loading";

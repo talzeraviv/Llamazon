@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "./Product";
+import Image from "next/image";
 
 const ProductFeed = ({ products }) => {
   return (
@@ -18,11 +19,15 @@ const ProductFeed = ({ products }) => {
         )
       )}
 
-      <img
-        className="md:col-span-full"
-        src="https://links.papareact.com/dyz"
-        alt="ad"
-      />
+      <div className="object-contain col-span-full">
+        <Image
+          className=" md:col-span-full"
+          src="https://links.papareact.com/dyz"
+          alt="ad"
+          width={1500}
+          height={300}
+        />
+      </div>
 
       <div className="md:col-span-2">
         {products

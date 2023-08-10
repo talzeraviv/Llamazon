@@ -75,7 +75,7 @@ function Header() {
         <p className="link flex items-center font-bold">All</p>
         <p className="link">Prime Llama</p>
         <p className="link">Business Llama</p>
-        <p className="link">Top Llama's In Town</p>
+        <p className="link">Top Llama`s In Town</p>
         <p className="link hidden lg:inline-flex">Electronic Llama</p>
         <p className="link hidden lg:inline-flex">Food & Groceries</p>
         <p className="link hidden lg:inline-flex">Hidden Gems</p>
