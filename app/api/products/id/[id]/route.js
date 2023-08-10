@@ -1,10 +1,8 @@
 import { NextResponse } from "next/server";
-import Product from "@/models/ProductModel";
-import MongoDbConnect from "@/libs/MongoDb";
+import GetProductById from "@/libs/ProductRequests/GetProductById";
 
 export async function GET(_, { params: { id } }) {
-  MongoDbConnect();
-  const product = await Product.findById(id);
+  const product = await GetProductById(id);
 
   return product
     ? NextResponse.json(product)

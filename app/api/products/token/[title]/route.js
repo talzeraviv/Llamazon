@@ -1,13 +1,9 @@
+import GetProductByToken from "@/libs/ProductRequests/GetProductByToken";
 import { NextResponse } from "next/server";
-
-import Product from "@/models/ProductModel";
-import MongoDbConnect from "@/libs/MongoDb";
 
 export async function GET(req, res) {
   const { title } = res.params;
-
-  MongoDbConnect();
-  const product = await Product.findOne({ title });
+  const product = await GetProductByToken({ title });
 
   return product
     ? NextResponse.json(product)

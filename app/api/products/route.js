@@ -1,16 +1,7 @@
-import React from "react";
-import MongoDbConnect from "@/libs/MongoDb";
-import Product from "@/models/ProductModel";
 import { NextResponse } from "next/server";
+import GetProducts from "@/libs/ProductRequests/GetProducts";
 
 export async function GET() {
-  await MongoDbConnect();
-  const products = await Product.find();
-
-  try {
-    console.log(products);
-    return NextResponse.json(products, { status: 200 });
-  } catch (error) {
-    console.log(error);
-  }
+  const products = await GetProducts();
+  return NextResponse.json(products, { status: 200 });
 }

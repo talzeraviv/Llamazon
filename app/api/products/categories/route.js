@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
-import Product from "@/models/ProductModel";
-import MongoDbConnect from "@/libs/MongoDb";
+import GetDistinctCategories from "@/libs/ProductRequests/GetDistinctCategories";
 
 export async function GET() {
-  MongoDbConnect();
-  const categories = await Product.find().distinct("category");
+  const categories = await GetDistinctCategories();
   return NextResponse.json(categories);
 }

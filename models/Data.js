@@ -1,5 +1,5 @@
 import React from "react";
-import MongoDbConnect from "../libs/MongoDb";
+import MongoDbConnect from "../libs/MongoDbConnection";
 import Product from "./ProductModel";
 
 export const products = [

@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
-import Product from "@/models/ProductModel";
+import GetProductsBySearch from "@/libs/ProductRequests/GetProductsBySearch";
 
 export async function GET(req) {
   const PAGE_SIZE = 6;
 
   const searchParams = Object.fromEntries([...req.nextUrl.searchParams]);
 
-  const pageSize = searchParams.pageSize || PAGE_SIZE;
+  const pageSize = PAGE_SIZE;
+
   const page = searchParams.page || 1;
   const category = searchParams.category || "";
   const price = searchParams.price || "";
@@ -50,15 +51,15 @@ export async function GET(req) {
       ? { createdAt: -1 }
       : { _id: -1 };
 
-  const products = await Product.find({
-    ...queryFilter,
-    ...categoryFilter,
-    ...ratingFilter,
-    ...priceFilter,
-  })
-    .sort(sortOrder)
-    .skip((page - 1) * pageSize)
-    .limit(pageSize);
+  const products = await GetProductsBySearch(
+    queryFilter,
+    categoryFilter,
+    ratingFilter,
+    priceFilter,
+    sortOrder,
+    page,
+    pageSize
+  );
 
   const countproduct = products.length;
   return NextResponse.json({
