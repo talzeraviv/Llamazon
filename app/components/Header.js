@@ -13,15 +13,14 @@ function Header() {
       {/* top nav */}
       <div className="flex items-center space-x-2 bg-amazon_blue p-2 flex-grow py-1.5">
         {/* image */}
-        <div className="flex items-center flex-grow sm:flex-grow-0">
-          <Image
-            src="/Llamazon-Edited.png"
-            height={65}
-            width={65}
-            className="w-auto h-auto cursor-pointer"
-            alt="logo"
-          />
-        </div>
+
+        <Image
+          src="/Llamazon-Edited.png"
+          height={30}
+          width={100}
+          className="w-auto h-auto cursor-pointer"
+          alt="logo"
+        />
 
         {/* location */}
         <div className="hidden sm:flex items-end link whitespace-nowrap">
