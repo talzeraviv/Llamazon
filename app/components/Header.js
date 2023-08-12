@@ -11,28 +11,26 @@ function Header() {
   return (
     <header>
       {/* top nav */}
-      <div className="flex items-center space-x-2 bg-amazon_blue p-2 flex-grow py-1.5">
+      <div className="flex items-center space-x-2 bg-amazon_blue p-1 flex-grow py-1.5">
         {/* image */}
-
-        <Image
-          src="/Llamazon-Edited.png"
-          height={30}
-          width={100}
-          className="w-auto h-auto cursor-pointer"
-          alt="logo"
-        />
-
+        {/*TODO: Edit to remove padding on the actual picture. */}
+        <div>
+          <Image
+            src="/Llamazon-Edited.png"
+            height={30}
+            width={100}
+            className="w-auto h-auto cursor-pointer"
+            alt="logo"
+          />
+        </div>
         {/* location */}
-        <div className="hidden sm:flex items-end link whitespace-nowrap">
-          <div className="text-white flex items-end pr-6">
-            <MapPinIcon className="text-white h-4 w-4 mb-0.5" />
-            <div className="flex flex-col">
-              <p className="md:text-xs text-gray-300">Deliver to Tal</p>
-              <p className="font-bold md:text-sm">Tomer 90</p>
-            </div>
+        <div className="hidden sm:flex items-center mx-1 whitespace-nowrap text-white link">
+          <MapPinIcon className="h-4 w-4 mt-4" />
+          <div>
+            <p className="text-gray-300 md:text-xs">Deliver to Tal</p>
+            <p className="font-bold md:text-sm">Tomer 90</p>
           </div>
         </div>
-
         {/* search */}
         <div className="hidden sm:flex items-center h-10 rounded-md flex-grow flex-shrink-0 cursor-pointer bg-yellow-500">
           <input
@@ -42,16 +40,15 @@ function Header() {
           />
           <MagnifyingGlassIcon className="p-2 h-full rounded-md hover:bg-yellow-600" />
         </div>
-
         {/* Right */}
         <div className="text-white">
-          <ul className="flex items-center space-x-6 mx-6 whitespace-nowrap">
+          <ul className="flex items-center space-x-6 mx-1 whitespace-nowrap">
             <li key="username-and-account-link" className="link">
               <p className="md:text-xs">Hello, Tal Zer-Aviv</p>
               <p className="font-bold md:text-sm">Account & Lists</p>
             </li>
 
-            <li key="orders-and-returns" className="link">
+            <li key="returns-and-orders" className="link">
               <div className="md:text-xs">
                 Returns <p className="font-bold">& Orders</p>
               </div>
