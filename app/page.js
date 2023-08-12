@@ -5,14 +5,13 @@ import GetProducts from "@/libs/Actions/GetProducts";
 
 export default async function Home() {
   const products = await GetProducts();
-  console.log(products);
 
   return (
     <div className="bg-gray-100">
       <Header />
       <main className="max-w-screen-2xl mx-auto">
         <Banner />
-        <ProductFeed products={products} />
+        <ProductFeed products={await products} />
       </main>
     </div>
   );
