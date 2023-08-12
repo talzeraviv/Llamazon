@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { signIn, signOut, useSession } from "next-auth/react";
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
@@ -8,6 +11,8 @@ import {
 } from "@heroicons/react/24/outline";
 
 function Header() {
+  const { data: session } = useSession();
+
   return (
     <header>
       {/* top nav */}
@@ -24,10 +29,16 @@ function Header() {
           />
         </div>
         {/* location */}
-        <div className="hidden sm:flex items-center mx-1 whitespace-nowrap text-white link">
+        <div
+          className={`${
+            session ? "visible" : "invisible"
+          } hidden sm:flex items-center mx-1 whitespace-nowrap text-white link`}
+        >
           <MapPinIcon className="h-4 w-4 mt-4" />
           <div>
-            <p className="text-gray-300 md:text-xs">Deliver to Tal</p>
+            <p className="text-gray-300 md:text-xs">
+              {session ? `Deliver to ${session.user.name.split(" ")[0]}` : ""}
+            </p>
             <p className="font-bold md:text-sm">Tomer 90</p>
           </div>
         </div>
@@ -41,10 +52,12 @@ function Header() {
           <MagnifyingGlassIcon className="p-2 h-full rounded-md hover:bg-yellow-600" />
         </div>
         {/* Right */}
-        <div className="text-white">
+        <div onClick={!session ? signIn : signOut} className="text-white">
           <ul className="flex items-center space-x-6 mx-1 whitespace-nowrap">
             <li key="username-and-account-link" className="link">
-              <p className="md:text-xs">Hello, Tal Zer-Aviv</p>
+              <p className="md:text-xs">
+                {session ? `Hello, ${session.user.name}` : `Sign In`}
+              </p>
               <p className="font-bold md:text-sm">Account & Lists</p>
             </li>
 
