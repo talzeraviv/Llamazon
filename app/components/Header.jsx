@@ -28,20 +28,18 @@ function Header() {
             alt="logo"
           />
         </div>
-        {/* location */}
-        <div
-          className={`${
-            session ? "visible" : "invisible"
-          } hidden sm:flex items-center mx-1 whitespace-nowrap text-white link`}
-        >
-          <MapPinIcon className="h-4 w-4 mt-4" />
-          <div>
-            <p className="text-gray-300 md:text-xs">
-              {session ? `Deliver to ${session.user.name.split(" ")[0]}` : ""}
-            </p>
-            <p className="font-bold md:text-sm">Tomer 90</p>
+        {/* location (Shows only if session is available) */}
+        {session && (
+          <div className="hidden sm:flex items-center mx-1 whitespace-nowrap text-white link">
+            <MapPinIcon className="h-5 w-5 m-0.5" />
+            <div>
+              <p className="md:text-xs">
+                {session && `Deliver to ${session.user.name.split(" ")[0]}`}
+              </p>
+              <p className="font-bold md:text-sm">Tomer 90</p>
+            </div>
           </div>
-        </div>
+        )}
         {/* search */}
         <div className="hidden sm:flex items-center h-10 rounded-md flex-grow flex-shrink-0 cursor-pointer bg-yellow-500">
           <input
@@ -52,9 +50,13 @@ function Header() {
           <MagnifyingGlassIcon className="p-2 h-full rounded-md hover:bg-yellow-600" />
         </div>
         {/* Right */}
-        <div onClick={!session ? signIn : signOut} className="text-white">
+        <div className="text-white">
           <ul className="flex items-center space-x-6 mx-1 whitespace-nowrap">
-            <li key="username-and-account-link" className="link">
+            <li
+              onClick={!session ? signIn : signOut}
+              key="username-and-account-link"
+              className="link"
+            >
               <p className="md:text-xs">
                 {session ? `Hello, ${session.user.name}` : `Sign In`}
               </p>
