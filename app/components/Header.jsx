@@ -9,22 +9,28 @@ import {
   ShoppingCartIcon,
   MapPinIcon,
 } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import { selectItems } from "../slices/cartSlice";
 
 function Header() {
   const { data: session } = useSession();
+  const router = useRouter();
+  const items = useSelector(selectItems);
 
   return (
     <header>
       {/* top nav */}
-      <div className="flex items-center space-x-2 bg-amazon_blue p-1 flex-grow py-1.5">
+      <div className="flex items-center space-x-2 bg-amazon_blue p-2 flex-grow">
         {/* image */}
         {/*TODO: Edit to remove padding on the actual picture. */}
         <div>
           <Image
+            onClick={() => router.push("/")}
             src="/Llamazon-Edited.png"
-            height={30}
-            width={100}
-            className="w-auto h-auto cursor-pointer"
+            width={105}
+            height={41}
+            className="link"
             alt="logo"
           />
         </div>
@@ -69,9 +75,13 @@ function Header() {
               </div>
             </li>
 
-            <li key="shopping-cart" className="relative link flex items-center">
+            <li
+              onClick={() => router.push("/checkout")}
+              key="shopping-cart"
+              className="relative link flex items-center"
+            >
               <span className="absolute top-0 right-[-6px] md:right-6 h-4 w-4 bg-yellow-400 flex justify-center items-center rounded-full text-black font-bold text-sm">
-                0
+                {items.length}
               </span>
               <ShoppingCartIcon className="h-9" />
               <p className="hidden md:inline font-bold md:text-sm mt-2">Cart</p>
