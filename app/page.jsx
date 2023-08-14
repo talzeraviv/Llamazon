@@ -2,6 +2,8 @@ import Banner from "./components/Banner";
 import ProductFeed from "./components/ProductFeed";
 import GetProducts from "@/libs/Actions/GetProducts";
 
+export const fetchCache = "force-no-store";
+
 export default async function Home() {
   const products = await GetProducts();
 
