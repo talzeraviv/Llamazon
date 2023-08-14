@@ -13,11 +13,6 @@ export default async function Home() {
   );
 }
 
-async function GetProducts() {
-  const products = await GetProducts();
-  return products;
-}
-
 // Client Component Code
 
 {
