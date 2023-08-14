@@ -16,10 +16,11 @@ const Checkout = () => {
       <div className="flex-grow m-5 shadow-sm">
         <Image
           className="object-contain"
-          src="https:links.papareact.com/ikj"
+          src="https://links.papareact.com/ikj"
           width={1020}
           height={250}
-        ></Image>
+          alt="prime-ad"
+        />
         <div className="flex flex-col p-5 space-y-10 bg-white">
           <h1 className="text-3xl border-b pb-4 text-center">
             Your Shopping Cart{" "}

@@ -13,7 +13,13 @@ function CheckoutProduct({
 }) {
   return (
     <div className="grid grid-cols-5">
-      <Image className="object-contain" src={image} height={200} width={200} />
+      <Image
+        className="object-contain"
+        src={image}
+        height={200}
+        width={200}
+        alt={title}
+      />
       <div className="col-span-3 mx-5">
         <p className="text-xs text-gray-500">{category}</p>
         <p>{title}</p>
