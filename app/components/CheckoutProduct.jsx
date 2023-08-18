@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import StarComponent from "./Star";
 import CurrencyFormat from "./CurrencyFormat";
+import { useDispatch } from "react-redux";
+import { addToCart, removeFromCart } from "../slices/cartSlice";
 
 function CheckoutProduct({
   id,
@@ -11,6 +15,17 @@ function CheckoutProduct({
   category,
   image,
 }) {
+  const dispatch = useDispatch();
+
+  const addItemToCart = () => {
+    const product = { id, title, price, rating, description, category, image };
+    dispatch(addToCart(product));
+  };
+
+  const removeItemFromCart = ({ id }) => {
+    dispatch(removeFromCart({ id }));
+  };
+
   return (
     <div className="grid grid-cols-5">
       <Image
@@ -26,6 +41,15 @@ function CheckoutProduct({
         <StarComponent rating={rating} />
         <p className="text-xs my-2 line-clamp-3">{description}</p>
         <CurrencyFormat value={price} />
+      </div>
+
+      <div className="flex flex-col space-y-2 my-auto justify-self-end">
+        <button className="button" onClick={addItemToCart}>
+          Add to Cart
+        </button>
+        <button className="button" onClick={removeItemFromCart}>
+          Remove from Cart
+        </button>
       </div>
     </div>
   );
