@@ -6,6 +6,7 @@ export const fetchCache = "force-no-store";
 
 export default async function Home() {
   const products = await GetProducts();
+  console.log("Success fetching first product?", products[0] ? true : false);
 
   return (
     <div>
