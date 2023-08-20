@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import * as admin from "firebase-admin";
 
-var serviceAccount = require("../../../permissions.json");
-
 // Establish a connection to Stripe
+
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
+
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
 const endpointSecret = process.env.STRIPE_SIGNING_SECRET;
